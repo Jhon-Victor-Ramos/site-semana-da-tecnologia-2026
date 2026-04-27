@@ -30,21 +30,21 @@ const workshops = {
                 type: "Vídeo", 
                 channel: "Dev Aprender", 
                 link: "https://www.youtube.com/watch?v=epf-WQdVis0", 
-                desc: "Um excelente resumão para pegar a lógica rápido.",
+                desc: "Um excelente resumão para pegar a lógica rápido."
             },
             { 
                 title: "Algorithms and Data Structures Tutorial", 
                 type: "Vídeo", 
                 channel: "freeCodeCamp.org", 
                 link: "https://www.youtube.com/watch?v=8hly31xKli0", 
-                desc: "Para quem quer se aprofundar e treinar o inglês.",
+                desc: "Para quem quer se aprofundar e treinar o inglês."
             },
             { 
-                title: "Bônus: Python 3 – Mundo 1 [40 Horas]",
+                title: "Bônus: Python 3 – Mundo 1[40 Horas]",
                 type: "Vídeo", 
                 channel: "Curso em Vídeo", 
                 link: "https://www.youtube.com/watch?v=S9uPNppGsGo", 
-                desc: "Ótimo curso de Python do curso em vídeo",
+                desc: "Ótimo curso de Python do curso em vídeo"
             }
         ]
     },
@@ -62,7 +62,7 @@ const workshops = {
                     type: "Vídeo", 
                     channel: "Programming With Mosh", 
                     link: "https://www.youtube.com/watch?v=8JJ101D3knE", 
-                    desc: "Tutorial direto ao ponto em inglês.",
+                    desc: "Tutorial direto ao ponto em inglês."
                 },
                 {
                     title: "Git e GitHub [20 Horas]",
@@ -77,14 +77,14 @@ const workshops = {
                     type: "Vídeo", 
                     channel: "Código Fonte TV", 
                     link: "https://www.youtube.com/watch?v=ts-H3W1uLMM", 
-                    desc: "Um ótimo minicurso para começar no Git.",
+                    desc: "Um ótimo minicurso para começar no Git."
                 },
                 {    
                     title: "APRENDA GIT e GITHUB DO ZERO - guia completo", 
                     type: "Vídeo", 
                     channel: "Fernanda Kipper | Dev", 
                     link: "https://www.youtube.com/watch?v=pyM5QLS2h6M", 
-                    desc: "Vídeo incrível, excelente didática.",
+                    desc: "Vídeo incrível, excelente didática."
                 }
             ]
     },

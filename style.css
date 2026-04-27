@@ -727,46 +727,74 @@ body {
 }
 
 @media (max-width: 768px) {
+    .content-canvas { padding: 0 24px; }
     
-    .content-canvas {
-        padding: 0 24px;
-    }
-
+    /* Ajustes da Home (Página 1) */
     .main-grid {
-        max-width: 50dvw;
-        grid-template-columns: 1fr;
-        grid: center;
-        gap: 48px;
+        width: 100%;
+        max-width: 400px;
         margin: 0 auto;
-        justify-items: center;
-        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 48px;
     }
-
     .main-grid .grid-column:nth-child(2) .stack {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
-
-    .grid-column:first-child {
-        width: 100%;
-    }
-
+    .grid-column:first-child { width: 100%; }
     .grid-column:first-child .stack .pill-wrapper .pill-button.glass {
         width: 100%;
         justify-content: space-evenly;
     }
-
     .main-grid .grid-column:nth-child(2) .pill-button {
         padding: 8px 12px;
         gap: 8px;
         min-height: 48px;
     }
-
     .social-text {
         font-size: 11px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    /* Ajustes Detalhes do Curso (Página 2) */
+    .header-with-back { justify-content: flex-end; }
+    .course-hero {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+        margin: 24px 0 56px;
+    }
+    .course-info { align-items: center; }
+    .course-title { font-size: 28px; text-align: center; }
+    .course-meta { width: 75%; }
+    .btn-download { align-self: center; }
+    .carousel-track {
+        padding-left: calc(50% - 150px);
+        padding-right: calc(50% - 150px);
+    }
+}
+
+/* --- RESPONSIVIDADE CARROSSEL (DESKTOP) --- */
+/* (Você tinha apagado essa regra sem querer!) */
+@media (min-width: 768px) {
+    .nav-arrow { display: block; } 
+    
+    .carousel-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .carousel-track {
+        max-width: 650px; 
+        padding-left: calc(50% - 150px);
+        padding-right: calc(50% - 150px);
     }
 }

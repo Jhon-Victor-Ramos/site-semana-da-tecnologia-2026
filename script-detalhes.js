@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let finalThumb = item.thumb;
         if (!finalThumb && item.link && item.link.includes('youtu')) {
             const ytId = getYouTubeId(item.link);
+            // CORREÇÃO: A URL MÁGICA FOI RESTAURADA AQUI!
             if (ytId) finalThumb = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`; 
         }
 
@@ -65,21 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById('js-next-btn');
     const cards = track.querySelectorAll('.material-card');
 
-    // Opções do Olheiro: 60% do card precisa estar na tela para ser "ativo"
-    const observerOptions = {
-        root: track,
-        threshold: 0.6 
-    };
+    const observerOptions = { root: track, threshold: 0.6 };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Remove o brilho de todos
                 cards.forEach(c => c.classList.remove('active-card'));
-                // Adiciona o brilho no card que está no centro
                 entry.target.classList.add('active-card');
 
-                // Lógica para apagar a seta quando chegar no limite
                 const index = Array.from(cards).indexOf(entry.target);
                 prevBtn.disabled = index === 0;
                 nextBtn.disabled = index === cards.length - 1;
@@ -87,10 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, observerOptions);
 
-    // Manda o olheiro vigiar todos os cards gerados
     cards.forEach(card => observer.observe(card));
 
-    // Ação das Setinhas (Desliza 320px, que é o tamanho do card + gap)
     prevBtn.addEventListener('click', () => {
         track.scrollBy({ left: -320, behavior: 'smooth' });
     });
