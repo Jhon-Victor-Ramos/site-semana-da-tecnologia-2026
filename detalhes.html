@@ -16,9 +16,9 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
             Voltar
         </a>
-        <div class="header-pill" style="margin-left: 0;"> <!-- Sobrescrevi a margin-left apenas aqui para centralizar perfeitamente com o Voltar -->
+        <div class="header-pill">
             <img src="./assets/icons/jhon-logo.svg" alt="Logo" class="header-logo">
-            <span class="header-text">Jhon Victor <span class="divider">|</span> Dev</span>
+            <span class="header-text">Jhon Victor <span class="divider"></span> Dev</span>
         </div>
     </header>
 
@@ -29,13 +29,16 @@
             <div class="hero-image-container">
                 <img id="js-hero-icon" src="" alt="Ícone do curso" class="course-hero-img">
             </div>
+            
+            <!-- A CAIXA INVISÍVEL -->
             <div class="course-info">
-                <!-- Metadados e Separador alinhados conforme o Figma -->
-                <div class="pill-meta course-meta" style="justify-content: flex-start; gap: 40px; margin-bottom: 8px;">
-                    <span id="js-category" class="pill-cat"></span>
+                <div class="course-meta">
+                    <div class="category-group">
+                        <span id="js-category" class="pill-cat"></span>
+                        <div id="js-separator" class="inner-sep"></div>
+                    </div>
                     <span id="js-duration" class="pill-dur"></span>
                 </div>
-                <div id="js-separator" class="inner-sep"></div>
                 
                 <h1 id="js-title" class="course-title"></h1>
                 
@@ -49,15 +52,24 @@
         <!-- CARROSSEL DE MATERIAIS -->
         <section class="materials-section">
             <div class="column-header materials-header">
-                <img src="./assets/icons/book.svg" alt="" style="width: 24px;">
+                <img src="./assets/icons/book.svg" alt="" class="section-icon">
                 <h3>Materiais recomendados</h3>
             </div>
             
-            <!-- Substituí o grid pelo wrapper do carrossel responsivo -->
             <div class="carousel-wrapper">
+                <!-- Seta Esquerda -->
+                <button id="js-prev-btn" class="nav-arrow" aria-label="Anterior">
+                    <img src="./assets/icons/prev-arrow.svg" alt="Seta Esquerda" class="arrow-icon">
+                </button>
+
                 <div id="js-materials-grid" class="carousel-track">
-                    <!-- O JS vai injetar os <article> aqui dentro -->
+                    <!-- Cards injetados via JS -->
                 </div>
+
+                <!-- Seta Direita -->
+                <button id="js-next-btn" class="nav-arrow" aria-label="Próximo">
+                    <img src="./assets/icons/next-arrow.svg" alt="Seta Direita" class="arrow-icon">
+                </button>
             </div>
         </section>
     </main>
@@ -73,7 +85,6 @@
         </div>
     </footer>
 
-    <!-- A ordem importa: dados primeiro, execução depois -->
     <script src="data.js"></script>
     <script src="script-detalhes.js"></script>
 </body>
