@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes | Jhon Victor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/icons/jhon-logo-favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="bg-wrapper"><div class="grid-lines"></div></div>
+    <div class="god-rays"></div>
+
+    <header class="main-header header-with-back">
+        <a href="index.html" class="back-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Voltar
+        </a>
+        <div class="header-pill" style="margin-left: 0;"> <!-- Sobrescrevi a margin-left apenas aqui para centralizar perfeitamente com o Voltar -->
+            <img src="./assets/icons/jhon-logo.svg" alt="Logo" class="header-logo">
+            <span class="header-text">Jhon Victor <span class="divider">|</span> Dev</span>
+        </div>
+    </header>
+
+    <main class="content-canvas">
+        
+        <!-- HERO DO CURSO -->
+        <section class="course-hero">
+            <div class="hero-image-container">
+                <img id="js-hero-icon" src="" alt="Ícone do curso" class="course-hero-img">
+            </div>
+            <div class="course-info">
+                <!-- Metadados e Separador alinhados conforme o Figma -->
+                <div class="pill-meta course-meta" style="justify-content: flex-start; gap: 40px; margin-bottom: 8px;">
+                    <span id="js-category" class="pill-cat"></span>
+                    <span id="js-duration" class="pill-dur"></span>
+                </div>
+                <div id="js-separator" class="inner-sep"></div>
+                
+                <h1 id="js-title" class="course-title"></h1>
+                
+                <a id="js-download" href="#" target="_blank" rel="noopener noreferrer" class="btn-download">
+                    BAIXAR MATERIAL 
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- CARROSSEL DE MATERIAIS -->
+        <section class="materials-section">
+            <div class="column-header materials-header">
+                <img src="./assets/icons/book.svg" alt="" style="width: 24px;">
+                <h3>Materiais recomendados</h3>
+            </div>
+            
+            <!-- Substituí o grid pelo wrapper do carrossel responsivo -->
+            <div class="carousel-wrapper">
+                <div id="js-materials-grid" class="carousel-track">
+                    <!-- O JS vai injetar os <article> aqui dentro -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/icons/programming-icon.svg" alt="">
+                <span>Desenvolvido por Jhon Victor</span>
+            </div>
+            <div class="footer-line"></div>
+            <p class="copyright">© 2026 Jhon Victor</p>
+        </div>
+    </footer>
+
+    <!-- A ordem importa: dados primeiro, execução depois -->
+    <script src="data.js"></script>
+    <script src="script-detalhes.js"></script>
+</body>
+</html>

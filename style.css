@@ -1,0 +1,609 @@
+@charset "UTF-8";
+
+/* ---- IMPORTAÇÃO DE FONTES ---- */
+/* Work Sans */
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/work-sans-v24-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/work-sans-v24-latin-300.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/work-sans-v24-latin-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fira Sans */
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('./assets/fonts/fira-sans-v18-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('./assets/fonts/fira-sans-v18-latin-500.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fira Code */
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Prompt */
+@font-face {
+    font-family: 'Prompt';
+    src: url('./assets/fonts/prompt-v12-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- FUNDAÇÕES --- */
+:root {
+    --G1: #050505; 
+    --G2: #161616; 
+    --G3: #2A2A2A; 
+    --G5: #6B6B6B;
+    --G6: #9E9E9E; 
+    --G7: #C7C7C7; 
+    --G8: #EDEDED;
+    --GD: #FFB800;
+    --GR1-grad: linear-gradient(90deg, #10B981 0%, #047857 100%);
+    --OR1-grad: linear-gradient(90deg, #F05032 0%, #8F2412 100%);
+    --PR1-grad: linear-gradient(90deg, #9500FF 0%, #53008E 100%);
+    --GD1-grad: linear-gradient(90deg, #FFB800 0%, #FFFFFF 100%);
+    --GD2-grad: linear-gradient(180deg, #FFCF53 0%, #FF9900 100%);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--G1);
+    color: var(--G7);
+    font-family: 'Work Sans', sans-serif;
+    width: 100%;
+    max-width: 700px; /* Alterado para garantir fluidez em telas menores */
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- BACKGROUND --- */
+.bg-wrapper { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+}
+.grid-lines {
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    /* 1. Deixei o branco um pouco mais forte (0.08) para o brilho ficar mais evidente onde a luz bater */
+    background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+    
+    /* 2. O Segredo da Iluminação: A Máscara */
+    /* Cria um círculo no canto superior direito que vai apagando o grid suavemente */
+    -webkit-mask-image: radial-gradient(ellipse at top right, black 0%, transparent 65%);
+    mask-image: radial-gradient(ellipse at top right, black 0%, transparent 65%);
+}
+.god-rays {
+    position: absolute;
+    top: 0;
+    right: 0;              /* Direita */
+    width: 350px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.god-rays {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+    transform: scaleX(-1);      /* Espelha horizontalmente */
+    /* Opcional: se houver transformações nos pseudo-elementos, o espelhamento será composto */
+}
+
+
+.god-rays::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;          /* Direita */
+    width: 300px;
+    height: 400px;
+    background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+        linear-gradient(170deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    filter: blur(8px);
+    mix-blend-mode: plus-lighter;
+}
+
+/* --- HEADER --- */
+.main-header { 
+    padding: 24px 20px; 
+    display: flex;
+}
+.header-pill {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px;
+    margin-left: 3rem;
+    padding: 8px 16px; 
+    border-radius: 16px;
+    background: rgba(235, 235, 235, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 2px rgba(255,255,255,0.2);
+}
+.header-logo { width: 48px; }
+.header-text { color: #FFF; font-size: 14px; font-family: 'Work Sans'; }
+.divider { margin: 0 4px; }
+
+/* --- MAIN CANVAS --- */
+.content-canvas {
+    position: relative; /* para conter o grid-light */
+    z-index: 1;
+}
+
+.profile { 
+    text-align: center; 
+    margin-bottom: 56px; 
+    padding-top: 20px; 
+}
+.photo-container {
+    width: 160px; 
+    height: 160px; 
+    border-radius: 50%; 
+    margin: 0 auto 20px;
+    background-color: var(--G3);
+    box-shadow: 0 0 30px rgba(201, 201, 201, 0.15);
+    overflow: hidden;
+}
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; 
+}
+.profile-name { font-family: 'Prompt', sans-serif; font-size: 24px; font-weight: 400; color: #FFF; }
+.profile-degree { color: var(--G6); font-size: 16px; margin-top: 8px; }
+
+.hero { text-align: center; margin-bottom: 56px; }
+.hero-title { font-size: 24px; font-weight: 400; color: var(--G7); }
+.hero-line { 
+    width: 100%; 
+    max-width: 360px;
+    height: 1px;
+    margin: 16px auto; 
+    background: linear-gradient(90deg, rgba(246, 246, 246, 0.02) 0%, #F6F6F6 50%, rgba(246, 246, 246, 0.02) 100%);
+}
+
+/* --- GRID E STACK --- */
+.main-grid { 
+    display: grid; 
+    grid-template-columns: minmax(240px, 280px) minmax(180px, 200px); 
+    gap: 40px; 
+    justify-content: center; 
+}
+.column-header { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+.column-header h3 { font-size: 18px; font-weight: 400; letter-spacing: 0.4px; left: 50%;}
+.stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* --- ANATOMIA DO BOTÃO GLASSMORPHISM --- */
+.pill-wrapper { display: flex; align-items: stretch; position: relative; }
+
+/* Separador Externo: Fundido sem gap */
+.external-sep { margin-right: -1px; z-index: 2; display: flex; align-items: center; }
+
+.pill-button {
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    width: 100%; 
+    min-height: 54px;
+    padding: 10px 16px 10px 14px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição mais suave e orgânica */
+    
+    /* A borda fina e semitransparente age como o "corte" do vidro */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Glassmorphism Puro */
+.glass {
+    /* Fundo levemente esbranquiçado, mas muito transparente */
+    background: rgba(235, 235, 235, 0.04);
+    
+    /* O desfoque que embaça o grid atrás do botão */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    box-shadow: 
+        0px 4px 16px rgba(0, 0, 0, 0.4),                   /* Sombra projetada para separar do fundo */
+        0px 0px 4px rgba(246, 246, 246, 0.05),             /* Glow externo sutil (do Figma) */
+        inset 0px 2px 4px rgba(246, 246, 246, 0.15),       /* Luz batendo na borda superior (do Figma) */
+        inset 0px -2px 2px rgba(246, 246, 246, 0.05);      /* Reflexo interno na borda inferior (do Figma) */
+}
+
+/* 1. O botão reage quando o mouse passa no container inteiro */
+.pill-wrapper:hover .pill-button { 
+    background: rgba(235, 235, 235, 0.08); /* O vidro fica um pouco mais leitoso/visível */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda fica mais nítida */
+    box-shadow: 
+        0px 8px 24px rgba(0, 0, 0, 0.6),                   /* A sombra cresce pois o botão "subiu" */
+        0px 0px 8px rgba(246, 246, 246, 0.08),
+        inset 0px 2px 4px rgba(246, 246, 246, 0.25),       /* O reflexo superior fica mais forte */
+        inset 0px -2px 2px rgba(246, 246, 246, 0.05);
+    transform: translateY(-3px);
+}
+/* 2. O separador externo acompanha o movimento e ganha destaque */
+.pill-wrapper:hover .external-sep svg {
+    height: 22px; 
+    transform: translateY(-3px); /* Sincronizado com a altura do botão */
+    filter: brightness(1.3) drop-shadow(0 0 6px rgba(255,255,255,0.3)); 
+}
+
+.pill-icon { width: 32px; height: auto; object-fit: contain; }
+.pill-content { display: flex; flex-direction: column; flex: 1; justify-content: center; }
+.pill-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-bottom: 0px; /* Zerado para grudar no separador */
+}
+.pill-cat, .pill-dur { font-size: 11px; color: var(--G6); letter-spacing: 0.2px; }
+
+/* Separador Interno 4x1 Rígido */
+.inner-sep { 
+    width: 12px; 
+    height: 1px; 
+    margin: -2px 0 1px; 
+}
+.sep-green { background: var(--GR1-grad); }
+.sep-orange { background: var(--OR1-grad); }
+.sep-purple { background: var(--PR1-grad); }
+
+.pill-title { font-size: 14px; font-weight: 600; color: var(--G8); line-height: 1.2; }
+
+/* Redes Sociais Adaptadas */
+.social { padding-left: 12px; min-height: 48px; }
+.social-icon { width: 24px; }
+.social-text { font-size: 13px; font-weight: 600; color: var(--G8); text-decoration: underline; }
+
+/* --- FOOTER --- */
+.main-footer {
+    width: 100%; 
+    padding: 32px 20px; 
+    background: var(--G2);
+    position: relative; 
+    overflow: hidden;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.main-footer::before {
+    content: ""; 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-image: url('./assets/icons/footer-texture.svg');
+    background-size: cover;
+    opacity: 0.1; 
+    pointer-events: none;
+}
+
+.footer-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+.footer-brand { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Fira Sans', sans-serif; font-size: 14px; margin-bottom: 12px; color: var(--G7); }
+.footer-line { width: 100%; max-width: 241px; height: 1px; margin: 0 auto 12px; opacity: 0.5; background: linear-gradient(90deg, rgba(246, 246, 246, 0.02) 0%, #F6F6F6 50%, rgba(246, 246, 246, 0.02) 100%); }
+.copyright { font-family: 'Fira Sans', sans-serif; font-size: 12px; color: var(--G6); letter-spacing: 0.5px; }
+
+
+/* =========================================
+   PÁGINA 2: DETALHES DO CURSO
+   ========================================= */
+
+/* --- HEADER AJUSTES --- */
+.header-with-back {
+    justify-content: center; /* Centraliza a pílula do logo */
+    position: relative;
+}
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--G6);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.back-button:hover {
+    color: #FFF;
+}
+
+/* --- HERO DO CURSO --- */
+.course-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin: 40px 0 80px;
+}
+.hero-image-container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.course-hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Adiciona um brilho sutil em volta da imagem principal */
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+}
+.course-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 400px;
+}
+.course-meta { margin-bottom: 4px; }
+.course-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #FFF;
+    line-height: 1.1;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+/* O CTA Principal */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--GD2-grad);
+    color: var(--G1);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 24px;
+    border: 4px solid rgba(246, 246, 246, 0.30);
+    box-shadow: 0 4px 15px rgb(255, 184, 0, .3), 
+                inset 0 2px 4px #C7C7C7;
+    transition: all 0.3s ease;
+}
+.btn-download:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 15px rgb(255, 184, 0, .7), 
+                inset 0 2px 4px #C7C7C7;
+}
+
+/* --- CARROSSEL DE MATERIAIS --- */
+.materials-header {
+    justify-content: center; /* Centraliza o título no carrossel */
+    margin-bottom: 32px;
+    position: relative;
+}
+/* Linha de fade sob o título */
+.materials-header::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100vw; /* Força largura total da tela */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 20px; /* Margem interna para mobile */
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    color: var(--G6);
+    cursor: pointer;
+    transition: color 0.2s;
+    display: none; /* Escondido por padrão, exibido no desktop */
+}
+.nav-arrow:hover { color: #FFF; }
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 24px; /* Espaço para a sombra do box */
+    
+    /* Mágica do Scroll nativo no mobile (não precisa de JS) */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    /* Esconde a barra de rolagem mas mantém o scroll */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+/* O Card do Material */
+.material-card {
+    min-width: 320px;
+    max-width: 320px;
+    flex-shrink: 0; /* Impede o flexbox de amassar o card */
+    scroll-snap-align: center; /* O card para sempre centralizado ao rolar */
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Espaço para a Thumbnail do Youtube/PDF */
+.thumb-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporção perfeita de vídeo */
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+}
+
+.card-content { display: flex; flex-direction: column; gap: 8px; }
+
+.material-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--G8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Truncamento mágico do Front-End (Reticências automáticas) */
+.material-desc {
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--G6);
+    
+    /* Limita o texto a 3 linhas exatas. Se passar, adiciona "..." */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- RESPONSIVIDADE PÁGINA 2 --- */
+@media (max-width: 640px) {
+    .header-with-back { justify-content: flex-end; }
+    
+    .course-hero {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+        margin: 24px 0 56px;
+    }
+    
+    .course-info {
+        align-items: center; /* Centraliza tudo no mobile */
+    }
+    
+    .course-title { font-size: 28px; text-align: center; }
+    
+    .carousel-track { padding: 0 20px 24px; } /* Garante espaçamento na rolagem mobile */
+}
+
+@media (min-width: 768px) {
+    .nav-arrow { display: block; } /* Mostra setinhas no PC */
+    .carousel-wrapper { max-width: 800px; padding: 0; }
+}
+
+
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 640px) {
+    .content-canvas {
+        padding: 0 24px;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-title {
+        font-size: 20px;
+    }
+
+    .pill-button {
+        max-width: 100%; /* Permite expandir na tela do celular */
+    }
+    /* 1. Transforma APENAS a stack de redes sociais em um grid 2x2 */
+    .main-grid > .grid-column:nth-child(2) .stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px; /* Reduzido levemente para dar mais espaço aos botões */
+    }
+
+    /* 2. Ajuste de sobrevivência para os botões sociais espremidos */
+    .main-grid > .grid-column:nth-child(2) .pill-button {
+        padding: 8px 10px; /* Reduz o padding para ganhar área útil */
+        gap: 8px; /* Aproxima o ícone do texto */
+        min-height: 44px;
+    }
+
+    /* 3. Trava de segurança para textos longos (ex: Jhon-Victor-Ramos) */
+    .social-text {
+        font-size: 11px; /* Fonte levemente menor para garantir o encaixe */
+        white-space: nowrap; /* Impede o texto de quebrar para a linha de baixo */
+        overflow: hidden; /* Esconde o que vazar */
+        text-overflow: ellipsis; /* Adiciona "..." no final se não couber */
+    }
+}
+
+
