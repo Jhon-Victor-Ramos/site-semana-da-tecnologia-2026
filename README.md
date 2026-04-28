@@ -41,4 +41,4 @@ Para este projeto, optei por uma abordagem **Vanilla (HTML5, CSS3, JavaScript pu
 ## Desenvolvedor
 
 **Jhon Victor**
-Estudante de Ciência da Computação e Desenvolvedor.
+* Estudante de Ciência da Computação e Desenvolvedor **→** [Linkedin](https://www.linkedin.com/in/jhon-victor-ramos/) ; [GitHub](https://github.com/Jhon-Victor-Ramos/) ; [Instagram](https://www.instagram.com/jhonvictor_dev) ; [Lattes](http://lattes.cnpq.br/2282663214204464)
