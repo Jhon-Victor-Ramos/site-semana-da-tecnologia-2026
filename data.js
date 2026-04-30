@@ -6,7 +6,7 @@ const workshops = {
         duration: "2h",
         icon: "./assets/icons/logo-python.svg",
         colorClass: "sep-green",
-        downloadLink: "#",
+        downloadLink: "https://github.com/Jhon-Victor-Ramos/minicurso-logica-programacao-2026/archive/refs/heads/main.zip",
         description: "Fundamentos de algoritmos utilizando Python como linguagem base para o aprendizado.",
         recommendations:[
             { 
@@ -54,7 +54,7 @@ const workshops = {
         duration: "2h",
         icon: "./assets/icons/logo-material-didatico.svg",
         colorClass: "sep-orange",
-        downloadLink: "#",
+        downloadLink: "https://github.com/Jhon-Victor-Ramos/minicurso-git-github-2026/archive/refs/heads/main.zip",
         description: "Aprenda a versionar seus projetos e colaborar em equipe utilizando as ferramentas padrão da indústria.",
         recommendations:[
                 {    
@@ -88,17 +88,63 @@ const workshops = {
                 }
             ]
     },
-    "visao": {
-        title: "Eagle's Eye: Visão Computacional",
+    "visao-computacional": {
+        title: "Eagle's Eye: Visão Computacional Aplicada à Drones",
         category: "Palestra",
         duration: "1h30min",
         icon: "./assets/icons/eagle-icon.svg",
         colorClass: "sep-purple",
         downloadLink: "#",
         description: "Uma introdução ao processamento de imagens e IA aplicada ao reconhecimento de padrões.",
+        speakers:[
+            { name: "Camilla Torquato", photo: "./assets/images/camilla-torquato.jpg" },
+            { name: "Jhon Victor", photo: "./assets/images/jhon-victor.jpg" },
+            { name: "João Pedro", photo: "./assets/images/joao-pedro.jpeg" },
+            { name: "Maria Clara", photo: "./assets/images/maria-clara.jpg" },
+            { name: "Maria Luiza", photo: "./assets/images/maria-luiza.jpg" },
+            { name: "Rielly Luiza", photo: "./assets/images/rielly-luiza.jpg" }
+        ],
+
         recommendations:[
-            { title: "OpenCV Tutorial", type: "Docs", channel: "OpenCV", link: "#", desc: "A biblioteca principal para visão computacional detalhada." },
-            { title: "IA e Robótica", type: "Artigo", channel: "IEEE", link: "#", desc: "O futuro da percepção de máquinas em sistemas autônomos." }
+            {
+                title: "Construa seu Drone",
+                type: "Playlist",
+                channel: "a Revisada",
+                thumb: "https://i.ytimg.com/vi/972Z_QBTgM8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBtGB9GjrxxWMt8NfL6eIWdg281DQ",
+                link: "https://youtube.com/playlist?list=PLRCchDl13FVkp0AHYTX3Gcn1S1PhBTcea&si=bHvuLYqzav1ZsW_w",
+                desc: "Playlist que ensina a montar drones e configurá-los."
+            },
+            {    
+                title: "OpenCV Course - Full Tutorial with Python", 
+                type: "Vídeo", 
+                channel: "freeCodeCamp.org", 
+                link: "https://www.youtube.com/watch?v=oXlwWbU8l2o", // <-- Aspas consertadas!
+                desc: "Curso completo de OpenCV."
+            },
+            {
+                title: "Introdução à Visão Computacional",
+                type: "Playlist",
+                channel: "Programação Dinâmica",
+                thumb: "https://i.ytimg.com/vi/RSkbjZZb-1c/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAlKt-TfOf0aCLg8DWBNAQu490-dA",
+                link: "https://youtube.com/playlist?list=PL5TJqBvpXQv729nb3vdeP4E87hLark5q9",
+                desc: "Nesta playlist você vai entender o que é visão computacional e aprendizado de máquina."
+            },
+            {
+                title: "Primeiros passos com Pytorch | Deep Learning #1",
+                type: "Live",
+                channel: "Programação Dinâmica",
+                thumb: "https://i.ytimg.com/vi/cGxv8tOaA7I/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAZQnr1TEB2rqnfBznINbtj0YZnYw",
+                link: "https://www.youtube.com/watch?v=cGxv8tOaA7I",
+                desc: "Live feita para introduzir o conteúdo de PyThorch e também redes neurais."
+            },
+            {
+                title: "Explicação sobre a detecção de objetos YOLO",
+                type: "Site",
+                channel: "datacamp",
+                thumb: "https://images.datacamp.com/image/upload/v1664382700/Object_detection_illustrated_from_image_recognition_and_localization_704ca34bd8.png",
+                link: "https://www.datacamp.com/pt/blog/yolo-object-detection-explained",
+                desc: "Entenda a detecção de objetos YOLO, seus benefícios, como ela evoluiu nos últimos anos e alguns aplicativos da vida real."
+            }
         ]
     }
 };
