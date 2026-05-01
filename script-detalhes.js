@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    const headerPill = document.querySelector('.header-pill');
+    if (data.category === 'Palestra' || data.speakers) {
+        headerPill.style.visibility = 'hidden';
+    }
+
+
     // Preenche o Hero
     document.getElementById('js-title').textContent = data.title;
     document.getElementById('js-category').textContent = data.category;

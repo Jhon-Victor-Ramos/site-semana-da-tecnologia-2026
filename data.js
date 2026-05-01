@@ -118,7 +118,7 @@ const workshops = {
                 title: "OpenCV Course - Full Tutorial with Python", 
                 type: "Vídeo", 
                 channel: "freeCodeCamp.org", 
-                link: "https://www.youtube.com/watch?v=oXlwWbU8l2o", // <-- Aspas consertadas!
+                link: "https://www.youtube.com/watch?v=oXlwWbU8l2o",
                 desc: "Curso completo de OpenCV."
             },
             {
