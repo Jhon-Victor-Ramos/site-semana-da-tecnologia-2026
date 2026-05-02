@@ -1,4 +1,4 @@
-# Jornada da Tecnologia 2026 | Hub de Materiais 🚀
+# Jornada da Tecnologia 2026 | Hub de Materiais
 
 Bem-vindo ao repositório oficial do hub de materiais da minha participação na **Jornada da Tecnologia de 2026**. 
 Este projeto foi desenvolvido e projetado do zero para entregar uma experiência imersiva, acessível e de altíssima performance para os alunos acessarem os conteúdos dos minicursos e palestras.
